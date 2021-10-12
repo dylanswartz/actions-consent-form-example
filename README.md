@@ -5,7 +5,7 @@ This sample demonstrates a minimal implementation of the `redirect` protocol. It
 
 If the user checks the "I agree" checkbox on this form and clicks the **Submit** button, they are then redirected back to Auth0 to complete the authentication flow. On future logins they will no longer be prompted since the consent action is stored in their user profile.
 
-The consent form is is a basic HTML page with a small bit of JavaScript handle the form submission. In this example we will use Vercel to host the form but that you use any hosting provider. 
+The consent form is is a basic HTML page with a small bit of JavaScript handle the form submission. In this example we will use [Vercel](https://vercel.com/) to host the form but that you use any hosting provider. 
 
 ## Action Setup
 
