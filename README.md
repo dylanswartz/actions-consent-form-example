@@ -68,6 +68,6 @@ You can lock this down by configuring your form website implementation to only r
 
 ### Data Integrity
 
-As stated, this is a very basic example of using a Actions Redirect to invoke a consent form. That said, at Auth0 we take secuirty very seriously. The `confirm` field (which has the value of `yes`) that is being passed back to auth0 as a signed token using a shared `SESSION_TOKEN_SECRET`.
+As stated, this is a very basic example of using a Actions Redirect to invoke a consent form. That said, at Auth0 we take security very seriously. The `confirm` field (which has the value of `yes`) that is being passed back to auth0 as a signed token using a shared `SESSION_TOKEN_SECRET`.
 
 In production scenarios where you need assurances of the integrity of the data being returned by the external website (in this case the our hosted consent form). For example, if you want to be sure that the data truly came from a trusted source, then it should be signed. If the data is sensitive, then it should be encrypted. A good mechanism for doing this is to use a [JWT](http://jwt.io/) (JSON Web Token). You can build a JWT with claims (that you can optionally encrypt) and then sign it with either a secret shared with your Auth0 Action or with a private key, whose public key is known by the action. The action can then verify that the claims are legit and decrypt them, if necessary.
