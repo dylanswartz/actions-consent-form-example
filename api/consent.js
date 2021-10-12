@@ -10,7 +10,8 @@ export default function (req, res) {
 
     if(!verified) throw new Error("Incoming session token cannot be verified.")
 
-    console.dir(decoded)
+    // Log statement to look at decoded information
+    // console.dir(decoded)
 
     if(req.method === 'POST') {
       processFormData(req, result => {
@@ -37,8 +38,6 @@ export default function (req, res) {
           secret,
         });
       
-        console.log("response: ", responseToken)
-
         res.writeHead(302, {
             'Location': `${redirect_uri}?state=${state}&session_token=${responseToken}`
           });

@@ -5,7 +5,7 @@
 * @param {PostLoginAPI} api - Interface whose methods can be used to change the behavior of the login.
 */
 const SESSION_TOKEN_SECRET = 'this-is-a-very-secret-token';
-const CONSENT_FORM_URL = 'http://localhost:3000';
+const CONSENT_FORM_URL = 'https://example-consent-form-vercel.vercel.app';
 exports.onExecutePostLogin = async (event, api) => {
 
    const sessionToken = api.redirect.encodeToken({
