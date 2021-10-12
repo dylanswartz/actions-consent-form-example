@@ -8,7 +8,12 @@ const SESSION_TOKEN_SECRET = 'this-is-a-very-secret-token';
 const CONSENT_FORM_URL = 'https://example-consent-form-vercel.vercel.app';
 exports.onExecutePostLogin = async (event, api) => {
 
-   const sessionToken = api.redirect.encodeToken({
+  // skip the rest of the action if the user already consented 
+  if (event.user.user_metadata.tos_accepted === "yes") {
+    return;
+  }
+
+  const sessionToken = api.redirect.encodeToken({
     secret: SESSION_TOKEN_SECRET,
     payload: {
       iss: `https://${event.request.hostname}/`,
@@ -45,6 +50,10 @@ exports.onContinuePostLogin = async (event, api) => {
   }
 
   const customClaims = decodedToken.other;
+
+  if (customClaims['tos_accepted'] !== 'yes') {
+    api.access.deny(`You must accept the terms before continuing`);
+  }
 
   for (const [key, value] of Object.entries(customClaims)) {
     api.user.setUserMetadata(key, value);

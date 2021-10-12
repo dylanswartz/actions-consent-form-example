@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "jws": "^4.0.0",
-    "querystring": "^0.2.1"
-  }
-}
