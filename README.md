@@ -9,7 +9,7 @@ The consent form is is a basic HTML page with a small bit of JavaScript handle t
 
 ## Action Setup
 
-To try this rule out with your own Auth0 account using an existing instance of the consent form webtask, follow these steps:
+To try this rule out with your own Auth0 account using an existing instance of the consent form, follow these steps:
 
 1. Create a new Auth0 custom Action using the contents of the [`action.js`](action.js) script as a part of the Login Flow.
 2. Modify the values for `CONSENT_FORM_URL` and `SESSION_TOKEN_SECRET` in your Action's code
